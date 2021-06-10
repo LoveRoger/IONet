@@ -7,11 +7,11 @@ class Parameters():
 		self.data_dir =  '../input/kitti-odometry'
 		self.pose_dir = self.data_dir + '/poses/'
 		self.pose_dir_npy = 'DeepVO-pytorch/'
-		self.imu_dir = self.data_dir + '/poses/'
+		self.imu_dir = self.data_dir + '/imus/'
 		self.imu_dir_npy = None
 		
-		self.train_imus = ['00', '01', '02', '05', '08', '09']
-		self.valid_imus = ['04', '06', '07', '10']
+		self.train_imus = ['04']
+		self.valid_imus = ['04']
 		self.partition = None  # partition videos in 'train_video' to train / valid dataset  #0.8
 		
 
