@@ -29,7 +29,7 @@ class IONet(nn.Module):
 
         # RNN
         self.rnn = nn.LSTM(
-                    input_size=(1,1,6),
+                    input_size=(6),
                     hidden_size=par.rnn_hidden_size,
                     num_layers=2, 
                     dropout=par.rnn_dropout_between,
