@@ -180,7 +180,7 @@ class ImuSeqDataset(Dataset):
         self.data_info = info_dataframe
         self.seq_len_list = list(self.data_info.seq_len)
         self.groundtruth_arr = np.asarray(self.data_info.pose)
-        self.imu_data_arr = np.asarray(self.data_info.imu)
+        self.imu_data_arr = np.asarray(self.data_info.imu_data)
 
     def __getitem__(self, index):
         raw_groundtruth = np.hsplit(self.groundtruth_arr[index], np.array([6]))	
