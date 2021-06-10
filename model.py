@@ -49,7 +49,7 @@ class IONet(nn.Module):
                 kaiming_normal_(m.weight.data)
                 if m.bias is not None:
                     m.bias.data.zero_()
-            elif isinstance(m, nn.lSTM):
+            elif isinstance(m, nn.LSTM):
                 # layer 1
                 kaiming_normal_(m.weight_ih_l0)  #orthogonal_(m.weight_ih_l0)
                 kaiming_normal_(m.weight_hh_l0)
