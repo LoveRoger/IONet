@@ -24,7 +24,7 @@ def create_pose_data():
 	print('elapsed time = {}'.format(time.time()-start_t))
 
 def create_imu_data():
-	info = {'00': [0, 4540], '01': [0, 1100], '02': [0, 4660], '03': [0, 800], '04': [0, 270], '05': [0, 2760], '06': [0, 1100], '07': [0, 1100],'08': [1100, 5170], '09': [0, 1590], '10': [0, 1200]}
+	info = {'04': [0, 270]}
 	start_t = time.time()
 	for video in info.keys():
 		fn = '{}{}.txt'.format(par.imu_dir, video)
