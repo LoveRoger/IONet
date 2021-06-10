@@ -7,7 +7,8 @@ class Parameters():
 		self.data_dir =  '../input/kitti-odometry'
 		self.pose_dir = self.data_dir + '/poses/'
 		self.pose_dir_npy = 'DeepVO-pytorch/'
-		self.imu_dir = self.data_dir + '/imus/'
+		self.data_dir2 =  '../input/kitti-imu'
+		self.imu_dir = self.data_dir2 + '/imus/'
 		self.imu_dir_npy = None
 		
 		self.train_imus = ['04']
