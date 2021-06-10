@@ -68,6 +68,9 @@ class Parameters():
 			os.makedirs(os.path.dirname(self.save_optimzer_path))
 		if not os.path.isdir(os.path.dirname(self.train_data_info_path)):
 			os.makedirs(os.path.dirname(self.train_data_info_path))
-
+		if not os.path.isdir(os.path.dirname(self.pose_dir_npy)):
+			os.makedirs(os.path.dirname(self.pose_dir_npy))
+		if not os.path.isdir(os.path.dirname(self.imu_dir_npy)):
+			os.makedirs(os.path.dirname(self.imu_dir_npy))
 par = Parameters()
 
