@@ -9,7 +9,7 @@ class Parameters():
 		self.pose_dir_npy = './pose_npy/'
 		self.data_dir2 =  '../input/kitti-imu'
 		self.imu_dir = self.data_dir2 + '/imus/'
-		self.imu_dir_npy = './imu_npy'
+		self.imu_dir_npy = './imu_npy/'
 		
 		self.train_imus = ['04']
 		self.valid_imus = ['04']
