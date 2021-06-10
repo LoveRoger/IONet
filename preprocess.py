@@ -31,7 +31,7 @@ def create_imu_data():
 		print('Transforming {}...'.format(fn))
 		with open(fn) as f:
 			lines = [line.split('\n')[0] for line in f.readlines()]
-			imus = [float(value) for value in (l.split(' ') for l in lines)]  # list of imu data
+			imus = [[float(value) for value in l.split(' ')] for l in lines]  # list of imu data
 			imus = np.array(imus)
 			base_fn = './' +os.path.splitext(os.path.split(fn)[1])[0]
 			np.save(base_fn+'.npy', imus)
