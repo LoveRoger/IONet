@@ -19,6 +19,7 @@ def get_data_info(folder_list, seq_len_range, overlap, sample_times=1, pad_y=Fal
         start_t = time.time()
         poses = np.load('{}{}.npy'.format(par.pose_dir_npy, folder))  # (n_imus, 6)
         imu_data = np.load('{}{}.npy'.format(par.pose_dir_npy, folder))  # (n_imus, 6)
+        print(np.shape(imu_data))
         # Fixed seq_len
         if seq_len_range[0] == seq_len_range[1]:
             if sample_times > 1:
