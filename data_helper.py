@@ -180,16 +180,10 @@ class ImuSeqDataset(Dataset):
         self.data_info = info_dataframe
         self.seq_len_list = list(self.data_info.seq_len)
         self.groundtruth_arr = np.asarray(self.data_info.pose)
-        print("gt arr is: ")
-        print(self.groundtruth_arr)
         self.imu_data_arr = np.asarray(self.data_info.imu_data)
 
     def __getitem__(self, index):
         raw_groundtruth = np.hsplit(self.groundtruth_arr[index], np.array([6]))	
-        print("gt sequence is:")
-        print(raw_groundtruth[0])
-        print("gt[1][0]")
-        print(raw_groundtruth[1][0])
         groundtruth_sequence = raw_groundtruth[0]
         groundtruth_rotation = raw_groundtruth[1][0].reshape((3, 3)).T # opposite rotation of the first frame
         groundtruth_sequence = torch.FloatTensor(groundtruth_sequence)
