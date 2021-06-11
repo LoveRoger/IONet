@@ -77,6 +77,7 @@ class IONet(nn.Module):
     def forward(self, x): 
         # x: (batch, seq_len, 6)
         # RNN
+        print(x.shape)
         out, hc = self.rnn(x)
         out = self.rnn_drop_out(out)
         out = self.linear(out)
