@@ -36,9 +36,11 @@ def get_data_info(folder_list, seq_len_range, overlap, sample_times=1, pad_y=Fal
                 if res != 0:
                     n_frames = n_frames - res
                 x_segs = [imu_data[i:i+seq_len] for i in range(st, n_frames, jump)]
-                print("x_segs is: ".format(x_segs))
+                print("x_segs is: ")
+                print(x_segs)
                 y_segs = [poses[i:i+seq_len] for i in range(st, n_frames, jump)]
-                print("y_segs is: ".format(y_segs))
+                print("y_segs is: ")
+                print(y_segs)
                 Y += y_segs
                 X_data += x_segs
                 X_len += [len(xs) for xs in x_segs]
