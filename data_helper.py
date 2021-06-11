@@ -18,7 +18,7 @@ def get_data_info(folder_list, seq_len_range, overlap, sample_times=1, pad_y=Fal
     for folder in folder_list:
         start_t = time.time()
         poses = np.load('{}{}.npy'.format(par.pose_dir_npy, folder))  # (n_imus, 6)
-        imu_data = np.load('{}{}.npy'.format(par.pose_dir_npy, folder))  # (n_imus, 6) IT'S OK
+        imu_data = np.load('{}{}.npy'.format(par.imu_dir_npy, folder))  # (n_imus, 6)
         # Fixed seq_len
         if seq_len_range[0] == seq_len_range[1]:
             if sample_times > 1:
@@ -36,11 +36,7 @@ def get_data_info(folder_list, seq_len_range, overlap, sample_times=1, pad_y=Fal
                 if res != 0:
                     n_frames = n_frames - res
                 x_segs = [imu_data[i:i+seq_len] for i in range(st, n_frames, jump)]
-                print("x_segs is: ")
-                print(x_segs)
                 y_segs = [poses[i:i+seq_len] for i in range(st, n_frames, jump)]
-                print("y_segs is: ")
-                print(y_segs)
                 Y += y_segs
                 X_data += x_segs
                 X_len += [len(xs) for xs in x_segs]
