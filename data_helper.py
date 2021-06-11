@@ -18,8 +18,6 @@ def get_data_info(folder_list, seq_len_range, overlap, sample_times=1, pad_y=Fal
     for folder in folder_list:
         start_t = time.time()
         poses = np.load('{}{}.npy'.format(par.pose_dir_npy, folder))  # (n_imus, 6)
-        print("poses are: ")
-        print(poses)
         imu_data = np.load('{}{}.npy'.format(par.imu_dir_npy, folder))  # (n_imus, 6)
         # Fixed seq_len
         if seq_len_range[0] == seq_len_range[1]:
@@ -39,8 +37,6 @@ def get_data_info(folder_list, seq_len_range, overlap, sample_times=1, pad_y=Fal
                     n_frames = n_frames - res
                 x_segs = [imu_data[i:i+seq_len] for i in range(st, n_frames, jump)]
                 y_segs = [poses[i:i+seq_len] for i in range(st, n_frames, jump)]
-                print("segs are: ")
-                print(y_segs)
                 Y += y_segs
                 X_data += x_segs
                 X_len += [len(xs) for xs in x_segs]
@@ -184,6 +180,8 @@ class ImuSeqDataset(Dataset):
         self.data_info = info_dataframe
         self.seq_len_list = list(self.data_info.seq_len)
         self.groundtruth_arr = np.asarray(self.data_info.pose)
+        print("gt arr is: ")
+        print(self.groundtruth_arr)
         self.imu_data_arr = np.asarray(self.data_info.imu_data)
 
     def __getitem__(self, index):
