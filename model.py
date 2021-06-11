@@ -93,7 +93,7 @@ class IONet(nn.Module):
 
     def get_loss(self, x, y):
         predicted = self.forward(x)
-        y = y[:, 1:, :]  # (batch, seq, dim_pose)
+        #y = y[:, 1:, :]  # (batch, seq, dim_pose)
         # Weighted MSE Loss
         angle_loss = torch.nn.functional.mse_loss(predicted[:,:,:3], y[:,:,:3])
         translation_loss = torch.nn.functional.mse_loss(predicted[:,:,3:], y[:,:,3:])
